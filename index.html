@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Gold Price</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 10px;
+      font-family: Arial, sans-serif;
+      font-size: 18px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  Gold price today is: <span id="price">Loading...</span> USD
+  <script>
+    fetch("https://api.gold-api.com/price/XAU")
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById("price").textContent = data.price;
+      })
+      .catch(error => {
+        document.getElementById("price").textContent = "Error fetching price";
+      });
+  </script>
+</body>
+</html>
