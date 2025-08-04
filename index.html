@@ -2,26 +2,23 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>سعر الذهب عيار 24</title>
+  <title>Gold Price</title>
   <style>
     body {
       margin: 0;
-      padding: 10px;
+      padding: 0;
       font-family: Arial, sans-serif;
-      font-size: 18px;
-      color: #222;
-      direction: rtl;
-      text-align: right;
+      font-size: 20px;
+      color: #000;
+      text-align: center;
     }
   </style>
 </head>
 <body>
-  <span>سعر الذهب عيار 24 اليوم: </span>
-  <span id="price">جاري التحميل...</span>
-  <span>دينار بحريني للجرام</span>
+  <span id="price">...</span>
 
   <script>
-    const usdToBhd = 0.376; // سعر الصرف الثابت
+    const usdToBhd = 0.376;
     const ounceToGram = 31.1035;
 
     fetch("https://api.gold-api.com/price/XAU")
@@ -34,7 +31,7 @@
         document.getElementById("price").textContent = gramPriceBHD.toFixed(2);
       })
       .catch(error => {
-        document.getElementById("price").textContent = "حدث خطأ في جلب السعر";
+        document.getElementById("price").textContent = "خطأ";
       });
   </script>
 </body>
